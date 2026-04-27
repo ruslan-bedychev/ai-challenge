@@ -7,7 +7,30 @@
     "score": 9850,
     "year": 2025,
     "quarter": "Q1",
-    "category": "Engineering"
+    "category": "Engineering",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Refactored auth module",
+        "category": "Engineering",
+        "date": "Apr 20, 2025",
+        "points": 320
+      },
+      {
+        "id": 2,
+        "name": "Resolved 12 bug reports",
+        "category": "Engineering",
+        "date": "Apr 14, 2025",
+        "points": 180
+      },
+      {
+        "id": 3,
+        "name": "Code review — design system PR",
+        "category": "Collaboration",
+        "date": "Apr 8, 2025",
+        "points": 90
+      }
+    ]
   },
   {
     "id": 2,
@@ -17,7 +40,23 @@
     "score": 9420,
     "year": 2025,
     "quarter": "Q1",
-    "category": "Product"
+    "category": "Product",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Launched Q1 roadmap",
+        "category": "Product",
+        "date": "Apr 18, 2025",
+        "points": 400
+      },
+      {
+        "id": 2,
+        "name": "Stakeholder presentation",
+        "category": "Communication",
+        "date": "Apr 10, 2025",
+        "points": 210
+      }
+    ]
   },
   {
     "id": 3,
@@ -27,7 +66,23 @@
     "score": 8975,
     "year": 2025,
     "quarter": "Q1",
-    "category": "Engineering"
+    "category": "Engineering",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Optimized DB query performance",
+        "category": "Engineering",
+        "date": "Apr 22, 2025",
+        "points": 350
+      },
+      {
+        "id": 2,
+        "name": "API documentation update",
+        "category": "Documentation",
+        "date": "Apr 15, 2025",
+        "points": 120
+      }
+    ]
   },
   {
     "id": 4,
@@ -37,7 +92,30 @@
     "score": 8610,
     "year": 2025,
     "quarter": "Q2",
-    "category": "Design"
+    "category": "Design",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Redesigned onboarding flow",
+        "category": "Design",
+        "date": "Apr 19, 2025",
+        "points": 380
+      },
+      {
+        "id": 2,
+        "name": "Usability testing session",
+        "category": "Research",
+        "date": "Apr 12, 2025",
+        "points": 160
+      },
+      {
+        "id": 3,
+        "name": "Component library update",
+        "category": "Design",
+        "date": "Apr 5, 2025",
+        "points": 95
+      }
+    ]
   },
   {
     "id": 5,
@@ -47,7 +125,23 @@
     "score": 8340,
     "year": 2025,
     "quarter": "Q2",
-    "category": "Analytics"
+    "category": "Analytics",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Q1 performance report",
+        "category": "Analytics",
+        "date": "Apr 21, 2025",
+        "points": 300
+      },
+      {
+        "id": 2,
+        "name": "Dashboard metrics review",
+        "category": "Analytics",
+        "date": "Apr 9, 2025",
+        "points": 145
+      }
+    ]
   },
   {
     "id": 6,
@@ -57,7 +151,23 @@
     "score": 8100,
     "year": 2025,
     "quarter": "Q2",
-    "category": "Engineering"
+    "category": "Engineering",
+    "activities": [
+      {
+        "id": 1,
+        "name": "CI/CD pipeline migration",
+        "category": "Engineering",
+        "date": "Apr 17, 2025",
+        "points": 420
+      },
+      {
+        "id": 2,
+        "name": "Infrastructure cost audit",
+        "category": "Operations",
+        "date": "Apr 7, 2025",
+        "points": 130
+      }
+    ]
   },
   {
     "id": 7,
@@ -67,7 +177,30 @@
     "score": 7870,
     "year": 2024,
     "quarter": "Q4",
-    "category": "Engineering"
+    "category": "Engineering",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Automated regression suite",
+        "category": "Engineering",
+        "date": "Apr 23, 2025",
+        "points": 310
+      },
+      {
+        "id": 2,
+        "name": "Release sign-off v3.2",
+        "category": "QA",
+        "date": "Apr 16, 2025",
+        "points": 200
+      },
+      {
+        "id": 3,
+        "name": "Bug triage session",
+        "category": "QA",
+        "date": "Apr 11, 2025",
+        "points": 80
+      }
+    ]
   },
   {
     "id": 8,
@@ -77,7 +210,23 @@
     "score": 7650,
     "year": 2024,
     "quarter": "Q4",
-    "category": "Marketing"
+    "category": "Marketing",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Campaign launch — Spring",
+        "category": "Marketing",
+        "date": "Apr 20, 2025",
+        "points": 360
+      },
+      {
+        "id": 2,
+        "name": "Brand guidelines update",
+        "category": "Marketing",
+        "date": "Apr 6, 2025",
+        "points": 110
+      }
+    ]
   },
   {
     "id": 9,
@@ -87,7 +236,23 @@
     "score": 7400,
     "year": 2024,
     "quarter": "Q3",
-    "category": "Engineering"
+    "category": "Engineering",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Feature: real-time notifications",
+        "category": "Engineering",
+        "date": "Apr 18, 2025",
+        "points": 290
+      },
+      {
+        "id": 2,
+        "name": "Performance profiling",
+        "category": "Engineering",
+        "date": "Apr 10, 2025",
+        "points": 150
+      }
+    ]
   },
   {
     "id": 10,
@@ -97,7 +262,30 @@
     "score": 7180,
     "year": 2024,
     "quarter": "Q3",
-    "category": "Design"
+    "category": "Design",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Mobile app redesign",
+        "category": "Design",
+        "date": "Apr 22, 2025",
+        "points": 340
+      },
+      {
+        "id": 2,
+        "name": "Icon set contribution",
+        "category": "Design",
+        "date": "Apr 13, 2025",
+        "points": 100
+      },
+      {
+        "id": 3,
+        "name": "Design critique session",
+        "category": "Collaboration",
+        "date": "Apr 4, 2025",
+        "points": 70
+      }
+    ]
   },
   {
     "id": 11,
@@ -107,7 +295,23 @@
     "score": 6950,
     "year": 2024,
     "quarter": "Q3",
-    "category": "Analytics"
+    "category": "Analytics",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Churn prediction model",
+        "category": "Analytics",
+        "date": "Apr 21, 2025",
+        "points": 370
+      },
+      {
+        "id": 2,
+        "name": "Data pipeline optimization",
+        "category": "Engineering",
+        "date": "Apr 8, 2025",
+        "points": 140
+      }
+    ]
   },
   {
     "id": 12,
@@ -117,7 +321,23 @@
     "score": 6720,
     "year": 2024,
     "quarter": "Q2",
-    "category": "Sales"
+    "category": "Sales",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Enterprise demo — Acme Corp",
+        "category": "Sales",
+        "date": "Apr 19, 2025",
+        "points": 280
+      },
+      {
+        "id": 2,
+        "name": "Technical proposal — Beta Ltd",
+        "category": "Sales",
+        "date": "Apr 11, 2025",
+        "points": 160
+      }
+    ]
   },
   {
     "id": 13,
@@ -127,7 +347,30 @@
     "score": 6490,
     "year": 2024,
     "quarter": "Q2",
-    "category": "Engineering"
+    "category": "Engineering",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Multi-region failover design",
+        "category": "Engineering",
+        "date": "Apr 17, 2025",
+        "points": 310
+      },
+      {
+        "id": 2,
+        "name": "Cost optimisation review",
+        "category": "Operations",
+        "date": "Apr 3, 2025",
+        "points": 115
+      },
+      {
+        "id": 3,
+        "name": "Security audit participation",
+        "category": "Security",
+        "date": "Mar 28, 2025",
+        "points": 90
+      }
+    ]
   },
   {
     "id": 14,
@@ -137,7 +380,23 @@
     "score": 6230,
     "year": 2024,
     "quarter": "Q1",
-    "category": "Marketing"
+    "category": "Marketing",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Blog series — Engineering culture",
+        "category": "Marketing",
+        "date": "Apr 16, 2025",
+        "points": 260
+      },
+      {
+        "id": 2,
+        "name": "SEO keyword strategy",
+        "category": "Marketing",
+        "date": "Apr 7, 2025",
+        "points": 130
+      }
+    ]
   },
   {
     "id": 15,
@@ -147,6 +406,22 @@
     "score": 5980,
     "year": 2024,
     "quarter": "Q1",
-    "category": "Analytics"
+    "category": "Analytics",
+    "activities": [
+      {
+        "id": 1,
+        "name": "Requirements workshop — CRM",
+        "category": "Analytics",
+        "date": "Apr 15, 2025",
+        "points": 240
+      },
+      {
+        "id": 2,
+        "name": "Process mapping report",
+        "category": "Documentation",
+        "date": "Apr 9, 2025",
+        "points": 120
+      }
+    ]
   }
 ]
