@@ -1,21 +1,16 @@
 import data from '../data/leaderboard.json';
+import type { LeaderboardUser } from '../types';
 
-export interface LeaderboardEntry {
-  id: number;
-  firstName: string;
-  lastName: string;
-  title: string;
-  score: number;
-  year: number;
-  quarter: string;
-  category: string;
-}
+// Re-export for backward compatibility
+export type { LeaderboardUser };
+/** @deprecated Use LeaderboardUser instead */
+export type LeaderboardEntry = LeaderboardUser;
 
-export function getLeaderboard(): Promise<LeaderboardEntry[]> {
+export function getLeaderboard(): Promise<LeaderboardUser[]> {
   const delay = 300 + Math.random() * 200;
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(data as LeaderboardEntry[]);
+      resolve(data as LeaderboardUser[]);
     }, delay);
   });
 }
