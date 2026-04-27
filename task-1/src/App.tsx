@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { getLeaderboard } from './services/api';
-import type { LeaderboardEntry } from './services/api';
+import type { LeaderboardUser } from './types';
 import Header from './components/Header';
 import Filters from './components/Filters';
 import Podium from './components/Podium';
@@ -8,7 +8,7 @@ import LeaderboardList from './components/LeaderboardList';
 import './index.css';
 
 function App() {
-  const [data, setData] = useState<LeaderboardEntry[]>([]);
+  const [data, setData] = useState<LeaderboardUser[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [selectedYear, setSelectedYear] = useState('');
@@ -53,18 +53,18 @@ function App() {
   }, [data, selectedYear, selectedQuarter, selectedCategory, search]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" style={{ backgroundColor: '#f6f7f9' }}>
       {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto">
+      <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-5xl mx-auto">
           <Header />
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
+      <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
         {/* Section header */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">Leaderboard</h2>
+          <h2 className="text-xl font-semibold text-gray-900">Leaderboard</h2>
           <p className="text-sm text-gray-500 mt-1">
             Top performers based on contributions and activity
           </p>
@@ -87,12 +87,12 @@ function App() {
 
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-4 border-indigo-400 border-t-transparent rounded-full animate-spin" />
+            <div className="w-8 h-8 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
           <>
             {/* Podium */}
-            <div className="bg-white rounded-2xl shadow-sm py-6 px-4">
+            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm py-6 px-4">
               <Podium entries={filtered} />
             </div>
 
