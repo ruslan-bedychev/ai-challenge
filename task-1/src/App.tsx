@@ -53,39 +53,39 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ background: '#f8fafc' }}>
-      <div className="max-w-4xl mx-auto px-4 py-8 space-y-4">
-        {/* Main white card: title + subtitle + filters + podium */}
-        <div className="bg-white rounded-xl shadow-sm" style={{ border: '1px solid #e2e8f0' }}>
-          <div className="px-6 pt-6 pb-5">
-            <h2 style={{ fontSize: '30px', fontWeight: 700, color: '#0f172a', margin: 0 }}>Leaderboard</h2>
-            <p style={{ fontSize: '14px', color: '#64748b', marginTop: '4px' }}>
-              Top performers based on contributions and activity
-            </p>
-            <div className="mt-4">
-              <Filters
-                years={years}
-                quarters={quarters}
-                categories={categories}
-                selectedYear={selectedYear}
-                selectedQuarter={selectedQuarter}
-                selectedCategory={selectedCategory}
-                search={search}
-                onYearChange={setSelectedYear}
-                onQuarterChange={setSelectedQuarter}
-                onCategoryChange={setSelectedCategory}
-                onSearchChange={setSearch}
-              />
-            </div>
-          </div>
-
-          {loading ? (
-            <div className="flex items-center justify-center py-16">
-              <div className="w-8 h-8 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
-            </div>
-          ) : (
-            <Podium entries={filtered} />
-          )}
+      <div className="max-w-5xl mx-auto px-4 py-8 space-y-4">
+        {/* Filters — separate white card */}
+        <div className="bg-white rounded-xl shadow-sm" style={{ border: '1px solid #e2e8f0', padding: '20px 24px' }}>
+          <Filters
+            years={years}
+            quarters={quarters}
+            categories={categories}
+            selectedYear={selectedYear}
+            selectedQuarter={selectedQuarter}
+            selectedCategory={selectedCategory}
+            search={search}
+            onYearChange={setSelectedYear}
+            onQuarterChange={setSelectedQuarter}
+            onCategoryChange={setSelectedCategory}
+            onSearchChange={setSearch}
+          />
         </div>
+
+        {/* Title + Podium — directly on background, no card */}
+        <div style={{ paddingTop: '8px' }}>
+          <h2 style={{ fontSize: '30px', fontWeight: 700, color: '#0f172a', margin: 0 }}>Leaderboard</h2>
+          <p style={{ fontSize: '14px', color: '#64748b', marginTop: '4px' }}>
+            Top performers based on contributions and activity
+          </p>
+        </div>
+
+        {loading ? (
+          <div className="flex items-center justify-center py-16">
+            <div className="w-8 h-8 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : (
+          <Podium entries={filtered} />
+        )}
 
         {/* Ranked list — individual cards per row */}
         {!loading && <LeaderboardList entries={filtered} />}

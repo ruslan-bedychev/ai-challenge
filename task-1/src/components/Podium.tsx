@@ -9,7 +9,7 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
   const isFirst = rank === 1;
 
   const avatarBorder = isFirst ? '4px solid #fbbf24' : '4px solid #fff';
-  const avatarSize = isFirst ? 80 : 64;
+  const avatarSize = isFirst ? 140 : 110;
 
   const badgeBg = rank === 1 ? '#eab308' : rank === 2 ? '#94a3b8' : '#92400e';
 
@@ -26,7 +26,7 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
   const scoreFontSize = isFirst ? '20px' : '18px';
 
   const order = rank === 1 ? 2 : rank === 2 ? 1 : 3;
-  const marginTop = rank === 1 ? '-32px' : '0';
+  const marginTop = rank === 1 ? '-48px' : '0';
 
   return (
     <div
@@ -84,8 +84,7 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
           fontWeight: 700,
           textAlign: 'center',
           lineHeight: 1.2,
-          maxWidth: '140px',
-          margin: '0 0 4px 0',
+        maxWidth: '240px',
         }}
       >
         {entry.firstName} {entry.lastName}
@@ -98,7 +97,7 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
           fontSize: '14px',
           fontWeight: 500,
           textAlign: 'center',
-          maxWidth: '140px',
+          maxWidth: '240px',
           margin: '0 0 8px 0',
           overflow: 'hidden',
           textOverflow: 'ellipsis',
@@ -142,7 +141,7 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
           background: blockBackground,
           borderTop: blockBorderTop,
           height: blockHeight,
-          width: '128px',
+          width: '240px',
           borderRadius: '12px 12px 0 0',
           boxShadow: 'inset 0 2px 4px rgba(0,0,0,.06)',
           paddingTop: '16px',
@@ -196,8 +195,8 @@ const Podium = ({ entries }: PodiumProps) => {
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'center',
-        gap: '24px',
-        maxWidth: '900px',
+        gap: '16px',
+        maxWidth: '1100px',
         margin: '0 auto',
         padding: '32px 8px 0',
       }}
