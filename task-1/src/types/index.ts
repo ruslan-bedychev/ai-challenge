@@ -1,3 +1,11 @@
+export interface ActivityItem {
+  id: number;
+  name: string;
+  category: string;
+  date: string;
+  points: number;
+}
+
 export interface LeaderboardUser {
   id: number;
   firstName: string;
@@ -7,4 +15,5 @@ export interface LeaderboardUser {
   year: number;
   quarter: string;
   category: string;
+  activities: ActivityItem[];
 }
