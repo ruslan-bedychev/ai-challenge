@@ -15,16 +15,35 @@ const LeaderboardItem = ({ entry, rank }: LeaderboardItemProps) => {
   const otherCount = entry.activities.filter((a) => !TECHNICAL_CATS.has(a.category)).length;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+    <div
+      style={{
+        background: '#fff',
+        border: `1px solid ${isOpen ? '#0ea5e9' : '#e2e8f0'}`,
+        borderRadius: '12px',
+        boxShadow: isOpen ? '0 4px 12px rgba(0,0,0,.1)' : '0 1px 3px rgba(0,0,0,.1)',
+        overflow: 'hidden',
+        transition: 'box-shadow 0.2s, border-color 0.2s',
+      }}
+    >
       {/* Main row — entire row is clickable */}
       <div
-        className="flex items-center gap-3 px-5 py-4 hover:bg-gray-50 transition-colors duration-150 cursor-pointer"
+        className="flex items-center gap-4 transition-colors duration-150 cursor-pointer"
+        style={{ padding: '20px 24px' }}
         onClick={() => setIsOpen(!isOpen)}
         role="button"
         aria-expanded={isOpen}
       >
         {/* Rank */}
-        <span className="w-6 text-center font-medium text-gray-400 text-sm shrink-0">
+        <span
+          style={{
+            minWidth: '32px',
+            textAlign: 'center',
+            color: '#94a3b8',
+            fontSize: '24px',
+            fontWeight: 700,
+            flexShrink: 0,
+          }}
+        >
           {rank}
         </span>
 
@@ -32,21 +51,21 @@ const LeaderboardItem = ({ entry, rank }: LeaderboardItemProps) => {
         <img
           src={`https://i.pravatar.cc/100?img=${entry.id}`}
           alt={`${entry.firstName} ${entry.lastName}`}
-          className="w-10 h-10 rounded-full object-cover shrink-0"
+          style={{ width: '56px', height: '56px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }}
         />
 
         {/* Name + Title */}
         <div className="flex-1 min-w-0">
-          <p className="font-medium text-gray-900 text-sm truncate">
+          <p style={{ fontWeight: 600, color: '#0f172a', fontSize: '14px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {entry.firstName} {entry.lastName}
           </p>
-          <p className="text-xs text-gray-500 truncate">{entry.title}</p>
+          <p style={{ color: '#64748b', fontSize: '13px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{entry.title}</p>
         </div>
 
         {/* Stat icons */}
         <div className="hidden sm:flex items-center gap-4 shrink-0">
           {techCount > 0 && (
-            <div className="flex items-center gap-1 text-blue-500">
+            <div className="flex items-center gap-1" style={{ color: '#0ea5e9' }}>
               {/* Monitor / screen icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +83,7 @@ const LeaderboardItem = ({ entry, rank }: LeaderboardItemProps) => {
             </div>
           )}
           {otherCount > 0 && (
-            <div className="flex items-center gap-1 text-blue-500">
+            <div className="flex items-center gap-1" style={{ color: '#0ea5e9' }}>
               {/* Eye icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,24 +107,16 @@ const LeaderboardItem = ({ entry, rank }: LeaderboardItemProps) => {
         </div>
 
         {/* Score section */}
-        <div className="shrink-0 text-right ml-2 min-w-[64px]">
-          <p className="text-xs text-gray-400 uppercase tracking-wide leading-none mb-0.5">
-            TOTAL
-          </p>
-          <div className="flex items-center justify-end gap-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 text-blue-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z" />
-            </svg>
-            <span className="font-bold text-blue-600 text-sm">
-              {entry.score.toLocaleString()}
-            </span>
-          </div>
+        <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: '6px', color: '#0ea5e9', fontSize: '24px', fontWeight: 700 }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ width: '28px', height: '28px', fill: 'currentColor', flexShrink: 0 }}
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z" />
+          </svg>
+          <span>{entry.score.toLocaleString()}</span>
         </div>
 
         {/* Toggle chevron */}
@@ -114,11 +125,23 @@ const LeaderboardItem = ({ entry, rank }: LeaderboardItemProps) => {
             e.stopPropagation();
             setIsOpen(!isOpen);
           }}
-          className="ml-1 p-1.5 rounded-full hover:bg-gray-100 transition-colors duration-150 shrink-0"
+          style={{
+            marginLeft: '4px',
+            padding: '8px',
+            borderRadius: '50%',
+            background: isOpen ? '#e0f2fe' : '#f1f5f9',
+            border: 'none',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+            transition: 'background 0.2s',
+          }}
           aria-label={isOpen ? 'Collapse' : 'Expand'}
         >
           <svg
-            className={`w-4 h-4 text-blue-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+            style={{ width: '20px', height: '20px', color: '#0ea5e9', transition: 'transform 0.3s', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -140,20 +163,20 @@ const LeaderboardItem = ({ entry, rank }: LeaderboardItemProps) => {
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="mx-5 mb-4 bg-gray-50 rounded-xl p-4 border border-gray-200">
-          <p className="text-xs font-semibold text-gray-500 mb-3 uppercase tracking-wide">
+        <div style={{ margin: '0 24px 16px', padding: '16px', background: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+          <p style={{ fontSize: '12px', fontWeight: 600, color: '#64748b', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             Recent Activity
           </p>
-          <div className="space-y-3">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {entry.activities.map((activity) => (
-              <div key={activity.id} className="flex justify-between items-center text-sm">
-                <div className="min-w-0 mr-4">
-                  <p className="text-gray-900 font-medium truncate">{activity.name}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">
+              <div key={activity.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '14px', padding: '0 0 12px 0', borderBottom: '1px solid #e2e8f0' }}>
+                <div style={{ minWidth: 0, marginRight: '16px' }}>
+                  <p style={{ color: '#0f172a', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{activity.name}</p>
+                  <p style={{ color: '#64748b', fontSize: '12px', marginTop: '2px' }}>
                     {activity.category} &bull; {activity.date}
                   </p>
                 </div>
-                <span className="text-blue-600 font-semibold shrink-0">
+                <span style={{ color: '#0ea5e9', fontWeight: 700, flexShrink: 0 }}>
                   +{activity.points}
                 </span>
               </div>

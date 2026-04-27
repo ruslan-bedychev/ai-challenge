@@ -52,13 +52,13 @@ function App() {
   }, [data, selectedYear, selectedQuarter, selectedCategory, search]);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen" style={{ background: '#f8fafc' }}>
       <div className="max-w-4xl mx-auto px-4 py-8 space-y-4">
         {/* Main white card: title + subtitle + filters + podium */}
-        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm">
+        <div className="bg-white rounded-xl shadow-sm" style={{ border: '1px solid #e2e8f0' }}>
           <div className="px-6 pt-6 pb-5">
-            <h2 className="text-xl font-semibold text-gray-900">Leaderboard</h2>
-            <p className="text-sm text-gray-500 mt-0.5">
+            <h2 style={{ fontSize: '30px', fontWeight: 700, color: '#0f172a', margin: 0 }}>Leaderboard</h2>
+            <p style={{ fontSize: '14px', color: '#64748b', marginTop: '4px' }}>
               Top performers based on contributions and activity
             </p>
             <div className="mt-4">
