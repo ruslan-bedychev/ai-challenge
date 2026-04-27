@@ -27,12 +27,15 @@ const Filters = ({
   onCategoryChange,
   onSearchChange,
 }: FiltersProps) => {
+  const selectCls =
+    'bg-white border border-gray-300 text-gray-700 text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer';
+
   return (
-    <div className="flex flex-wrap gap-3 items-center bg-gray-100 rounded-xl px-5 py-4 shadow-sm">
+    <div className="flex flex-wrap gap-2 items-center">
       {/* Year dropdown */}
       <select
         aria-label="Filter by year"
-        className="bg-white border border-gray-200 text-gray-700 text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400 cursor-pointer"
+        className={selectCls}
         value={selectedYear}
         onChange={(e: ChangeEvent<HTMLSelectElement>) => onYearChange(e.target.value)}
       >
@@ -47,7 +50,7 @@ const Filters = ({
       {/* Quarter dropdown */}
       <select
         aria-label="Filter by quarter"
-        className="bg-white border border-gray-200 text-gray-700 text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400 cursor-pointer"
+        className={selectCls}
         value={selectedQuarter}
         onChange={(e: ChangeEvent<HTMLSelectElement>) => onQuarterChange(e.target.value)}
       >
@@ -62,7 +65,7 @@ const Filters = ({
       {/* Category dropdown */}
       <select
         aria-label="Filter by category"
-        className="bg-white border border-gray-200 text-gray-700 text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400 cursor-pointer"
+        className={selectCls}
         value={selectedCategory}
         onChange={(e: ChangeEvent<HTMLSelectElement>) => onCategoryChange(e.target.value)}
       >
@@ -95,7 +98,7 @@ const Filters = ({
         <input
           type="text"
           placeholder="Search employee..."
-          className="w-full bg-white border border-gray-200 text-gray-700 text-sm rounded-lg pl-9 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          className="w-full bg-white border border-gray-300 text-gray-700 text-sm rounded-lg pl-9 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           value={search}
           onChange={(e: ChangeEvent<HTMLInputElement>) => onSearchChange(e.target.value)}
         />

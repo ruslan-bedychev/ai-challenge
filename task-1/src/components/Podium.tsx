@@ -14,6 +14,8 @@ const rankConfig: Record<
     badgeBg: string;
     order: string;
     topOffset: string;
+    avatarRing: string;
+    blockNumColor: string;
   }
 > = {
   1: {
@@ -23,22 +25,28 @@ const rankConfig: Record<
     badgeBg: 'bg-yellow-400',
     order: 'order-2',
     topOffset: 'mt-0',
+    avatarRing: 'ring-2 ring-yellow-400',
+    blockNumColor: 'text-yellow-400',
   },
   2: {
-    blockBg: 'bg-slate-200',
+    blockBg: 'bg-slate-100',
     blockHeight: 'h-20',
     avatarSize: 'w-16 h-16',
-    badgeBg: 'bg-slate-600',
+    badgeBg: 'bg-gray-500',
     order: 'order-1',
     topOffset: 'mt-6',
+    avatarRing: 'ring-2 ring-white',
+    blockNumColor: 'text-slate-300',
   },
   3: {
-    blockBg: 'bg-slate-200',
+    blockBg: 'bg-slate-100',
     blockHeight: 'h-16',
     avatarSize: 'w-16 h-16',
     badgeBg: 'bg-amber-700',
     order: 'order-3',
     topOffset: 'mt-6',
+    avatarRing: 'ring-2 ring-white',
+    blockNumColor: 'text-slate-300',
   },
 };
 
@@ -55,7 +63,7 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
         <img
           src={`https://i.pravatar.cc/100?img=${entry.id}`}
           alt={`${entry.firstName} ${entry.lastName}`}
-          className={`${cfg.avatarSize} rounded-full object-cover ring-2 ring-white shadow-md`}
+          className={`${cfg.avatarSize} rounded-full object-cover ${cfg.avatarRing} shadow-md`}
         />
         <span
           className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full ${cfg.badgeBg} text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-sm`}
@@ -91,7 +99,7 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
       <div
         className={`${cfg.blockBg} ${cfg.blockHeight} w-32 rounded-t-xl flex items-center justify-center mt-3`}
       >
-        <span className="text-slate-400 font-extrabold text-4xl">{rank}</span>
+        <span className={`${cfg.blockNumColor} font-extrabold text-4xl`}>{rank}</span>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const LeaderboardList = ({ entries }: LeaderboardListProps) => {
   }
 
   return (
-    <div className="divide-y divide-gray-100">
+    <div className="flex flex-col gap-3">
       {entries.map((entry, index) => (
         <LeaderboardItem key={entry.id} entry={entry} rank={index + 1} />
       ))}

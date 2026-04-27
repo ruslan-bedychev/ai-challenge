@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { getLeaderboard } from './services/api';
 import type { LeaderboardUser } from './types';
-import Header from './components/Header';
 import Filters from './components/Filters';
 import Podium from './components/Podium';
 import LeaderboardList from './components/LeaderboardList';
@@ -53,50 +52,43 @@ function App() {
   }, [data, selectedYear, selectedQuarter, selectedCategory, search]);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f6f7f9' }}>
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 shadow-sm">
-        <div className="max-w-5xl mx-auto">
-          <Header />
-        </div>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
-        {/* Section card: header + filters */}
-        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm px-6 py-5">
-          <h2 className="text-xl font-semibold text-gray-900">Leaderboard</h2>
-          <p className="text-sm text-gray-500 mt-0.5">
-            Top performers based on contributions and activity
-          </p>
-          <div className="mt-4">
-            <Filters
-              years={years}
-              quarters={quarters}
-              categories={categories}
-              selectedYear={selectedYear}
-              selectedQuarter={selectedQuarter}
-              selectedCategory={selectedCategory}
-              search={search}
-              onYearChange={setSelectedYear}
-              onQuarterChange={setSelectedQuarter}
-              onCategoryChange={setSelectedCategory}
-              onSearchChange={setSearch}
-            />
+    <div className="min-h-screen bg-gray-100">
+      <div className="max-w-4xl mx-auto px-4 py-8 space-y-4">
+        {/* Main white card: title + subtitle + filters + podium */}
+        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm">
+          <div className="px-6 pt-6 pb-5">
+            <h2 className="text-xl font-semibold text-gray-900">Leaderboard</h2>
+            <p className="text-sm text-gray-500 mt-0.5">
+              Top performers based on contributions and activity
+            </p>
+            <div className="mt-4">
+              <Filters
+                years={years}
+                quarters={quarters}
+                categories={categories}
+                selectedYear={selectedYear}
+                selectedQuarter={selectedQuarter}
+                selectedCategory={selectedCategory}
+                search={search}
+                onYearChange={setSelectedYear}
+                onQuarterChange={setSelectedQuarter}
+                onCategoryChange={setSelectedCategory}
+                onSearchChange={setSearch}
+              />
+            </div>
           </div>
-        </div>
 
-        {loading ? (
-          <div className="flex items-center justify-center py-20">
-            <div className="w-8 h-8 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
-          </div>
-        ) : (
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
-            {/* Podium */}
+          {loading ? (
+            <div className="flex items-center justify-center py-16">
+              <div className="w-8 h-8 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : (
             <Podium entries={filtered} />
-            {/* Full ranked list — all entries from #1 */}
-            <LeaderboardList entries={filtered} />
-          </div>
-        )}
+          )}
+        </div>
+
+        {/* Ranked list — individual cards per row */}
+        {!loading && <LeaderboardList entries={filtered} />}
       </div>
     </div>
   );
