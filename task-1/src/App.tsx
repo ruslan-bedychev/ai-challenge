@@ -62,43 +62,40 @@ function App() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
-        {/* Section header */}
-        <div>
+        {/* Section card: header + filters */}
+        <div className="bg-white border border-gray-200 rounded-2xl shadow-sm px-6 py-5">
           <h2 className="text-xl font-semibold text-gray-900">Leaderboard</h2>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-gray-500 mt-0.5">
             Top performers based on contributions and activity
           </p>
+          <div className="mt-4">
+            <Filters
+              years={years}
+              quarters={quarters}
+              categories={categories}
+              selectedYear={selectedYear}
+              selectedQuarter={selectedQuarter}
+              selectedCategory={selectedCategory}
+              search={search}
+              onYearChange={setSelectedYear}
+              onQuarterChange={setSelectedQuarter}
+              onCategoryChange={setSelectedCategory}
+              onSearchChange={setSearch}
+            />
+          </div>
         </div>
-
-        {/* Filters */}
-        <Filters
-          years={years}
-          quarters={quarters}
-          categories={categories}
-          selectedYear={selectedYear}
-          selectedQuarter={selectedQuarter}
-          selectedCategory={selectedCategory}
-          search={search}
-          onYearChange={setSelectedYear}
-          onQuarterChange={setSelectedQuarter}
-          onCategoryChange={setSelectedCategory}
-          onSearchChange={setSearch}
-        />
 
         {loading ? (
           <div className="flex items-center justify-center py-20">
             <div className="w-8 h-8 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
-          <>
+          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
             {/* Podium */}
-            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm py-6 px-4">
-              <Podium entries={filtered} />
-            </div>
-
-            {/* List */}
+            <Podium entries={filtered} />
+            {/* Full ranked list — all entries from #1 */}
             <LeaderboardList entries={filtered} />
-          </>
+          </div>
         )}
       </div>
     </div>

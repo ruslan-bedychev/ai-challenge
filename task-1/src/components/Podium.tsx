@@ -11,38 +11,34 @@ const rankConfig: Record<
     blockBg: string;
     blockHeight: string;
     avatarSize: string;
-    avatarRing: string;
+    badgeBg: string;
     order: string;
     topOffset: string;
-    crown: boolean;
   }
 > = {
   1: {
-    blockBg: 'bg-yellow-400',
+    blockBg: 'bg-yellow-200',
     blockHeight: 'h-28',
     avatarSize: 'w-20 h-20',
-    avatarRing: 'ring-4 ring-yellow-300',
+    badgeBg: 'bg-yellow-400',
     order: 'order-2',
     topOffset: 'mt-0',
-    crown: true,
   },
   2: {
-    blockBg: 'bg-gray-200',
+    blockBg: 'bg-slate-200',
     blockHeight: 'h-20',
     avatarSize: 'w-16 h-16',
-    avatarRing: 'ring-2 ring-white',
+    badgeBg: 'bg-slate-600',
     order: 'order-1',
     topOffset: 'mt-6',
-    crown: false,
   },
   3: {
-    blockBg: 'bg-gray-300',
+    blockBg: 'bg-slate-200',
     blockHeight: 'h-16',
     avatarSize: 'w-16 h-16',
-    avatarRing: 'ring-2 ring-white',
+    badgeBg: 'bg-amber-700',
     order: 'order-3',
     topOffset: 'mt-6',
-    crown: false,
   },
 };
 
@@ -51,21 +47,23 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
 
   return (
     <div className={`flex flex-col items-center ${cfg.order} ${cfg.topOffset}`}>
-      {/* Crown for #1 */}
-      {cfg.crown ? (
-        <div className="mb-1 text-2xl select-none" aria-hidden="true">
-          👑
-        </div>
-      ) : (
-        <div className="mb-1 h-8" />
-      )}
+      {/* Spacer for uniform top alignment */}
+      <div className="h-7 mb-1" />
 
-      {/* Avatar */}
-      <img
-        src={`https://i.pravatar.cc/100?img=${entry.id}`}
-        alt={`${entry.firstName} ${entry.lastName}`}
-        className={`${cfg.avatarSize} rounded-full object-cover ${cfg.avatarRing} shadow-md mb-2`}
-      />
+      {/* Avatar with rank badge overlay */}
+      <div className="relative mb-2">
+        <img
+          src={`https://i.pravatar.cc/100?img=${entry.id}`}
+          alt={`${entry.firstName} ${entry.lastName}`}
+          className={`${cfg.avatarSize} rounded-full object-cover ring-2 ring-white shadow-md`}
+        />
+        <span
+          className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full ${cfg.badgeBg} text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-sm`}
+          aria-hidden="true"
+        >
+          {rank}
+        </span>
+      </div>
 
       {/* Name */}
       <p className="font-semibold text-gray-900 text-sm text-center leading-tight max-w-[110px]">
@@ -76,7 +74,7 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
         {entry.title}
       </p>
       {/* Score badge */}
-      <div className="flex items-center gap-1 mt-1.5 bg-gray-100 border border-gray-200 rounded-full px-3 py-0.5 text-xs font-semibold text-gray-700 shadow-sm">
+      <div className="flex items-center gap-1 mt-1.5 bg-white border border-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-800 shadow-sm">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-3.5 w-3.5 text-yellow-400"
@@ -91,9 +89,9 @@ const PodiumItem = ({ entry, rank }: PodiumItemProps) => {
 
       {/* Podium block */}
       <div
-        className={`${cfg.blockBg} ${cfg.blockHeight} w-28 rounded-xl shadow-md flex items-center justify-center mt-3`}
+        className={`${cfg.blockBg} ${cfg.blockHeight} w-32 rounded-t-xl flex items-center justify-center mt-3`}
       >
-        <span className="text-white font-extrabold text-3xl drop-shadow">{rank}</span>
+        <span className="text-slate-400 font-extrabold text-4xl">{rank}</span>
       </div>
     </div>
   );
@@ -115,7 +113,7 @@ const Podium = ({ entries }: PodiumProps) => {
   }
 
   return (
-    <div className="flex items-end justify-center gap-6 px-4 py-6">
+    <div className="flex items-end justify-center gap-4 px-8 pt-8 pb-0">
       {top3[1] && <PodiumItem entry={top3[1]} rank={2} />}
       {top3[0] && <PodiumItem entry={top3[0]} rank={1} />}
       {top3[2] && <PodiumItem entry={top3[2]} rank={3} />}
