@@ -1,8 +1,8 @@
-import type { LeaderboardEntry } from '../services/api';
+import type { LeaderboardUser } from '../types';
 import LeaderboardItem from './LeaderboardItem';
 
 interface LeaderboardListProps {
-  entries: LeaderboardEntry[];
+  entries: LeaderboardUser[];
 }
 
 const LeaderboardList = ({ entries }: LeaderboardListProps) => {
